@@ -1,5 +1,5 @@
 #!/user/bin/env python
-
+'''
 import urllib
 import urllib2
 from cookielib import CookieJar
@@ -17,5 +17,5 @@ data = urllib.urlencode(formValues)
 response = opener.open("https://mail.google.com/mail/u/0/?tab=wm#inbox", data)
 
 print response.read()
-
+'''
 
