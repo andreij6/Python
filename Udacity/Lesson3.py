@@ -52,3 +52,31 @@ def print_all_links(page):
             page    = page[endpos:]
         else: 
             break
+
+#----------get_all_links
+def get_all_links(page):
+    links = []
+    while True: 
+        url, endpos = get_next_target(page)
+        if url:
+            links.append(url)
+            page    = page[endpos:]
+        else: 
+            break
+    return links
+
+#---------crawl_web
+
+def get_page():
+    return 0
+
+def crawl_web(seed):
+    tocrawl = [seed]
+    crawled = []
+    while tocrawl:
+        page = tocrawl.pop()
+        if page not in crawled:
+            union(tocrawl, get_all_links(get_page(page)))
+            crawled.append(page)
+    return crawled
+
