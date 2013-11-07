@@ -30,7 +30,7 @@ def multi_add(*args):
 
 func1()
 print func1()
-print func1
+print func1             # printing but no invoking the function prints out <function func1 at 0x022A8870>
 func2(10,20)
 print func2(10,20)
 print cube(3)
