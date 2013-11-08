@@ -25,5 +25,13 @@ def add_page_to_index(index, url, content):
     for keyword in keys:
         add_to_index(index, keyword, url)
         
+
+#------NETWORKS
+
+whatIsANetwork = """A newtwork is a group of entities that can communicate,
+                    even though they are not all directly connected """
+        
     
-    
+latency = "time it takes message to get from source to destination, measured in milliseconds"
+
+bandwith = "amount of information that can be transmitted per unit time, measured in bits per second"
