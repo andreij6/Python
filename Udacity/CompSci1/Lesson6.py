@@ -21,9 +21,27 @@ def iter_palindrome(s):
             return False
     return True
 
-def fibonacci(n):
-    if n==0 or n==1:
+def fibonacci(n):                               #    Recursive                                            
+                                                #    Takes a long time for higher numbers
+    if n==0 or n==1:                            #    Not effiecient doing redundant work           
         return n
     return fibonacci(n-1) + fibonacci(n-2)
     
-print fibonacci(15)
+
+def while_fibonacci(n):                             #    Iteratively
+    current =   0 
+    after   =   1
+    for i in range(0, n):
+        current, after = after, current + after     #    Multiple assignment
+    return current
+
+print while_fibonacci(33)
+
+mass_of_earth   = 5.9722 * 10**24
+mass_of_rabbit  = 2
+
+n = 1
+
+while while_fibonacci(n) * mass_of_rabbit < mass_of_earth:
+    n = n+1
+print n, while_fibonacci(n)
