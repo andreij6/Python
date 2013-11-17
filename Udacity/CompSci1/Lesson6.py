@@ -45,3 +45,38 @@ n = 1
 while while_fibonacci(n) * mass_of_rabbit < mass_of_earth:
     n = n+1
 print n, while_fibonacci(n)
+
+#Relaxation Algorithm
+#Start with a guess 
+#while not done:
+#      make the guess better
+
+def popularity(t,p):
+    if t == 0:
+        return 1
+    else:
+        score = 0
+        for f in friends(p):
+            score = score + popularity(t-1,f)
+        return score
+        
+def compute_ranks(graph):
+    d = 0.8 # damping factor
+    numloops = 10
+    
+    ranks = {}
+    npages = len(graph)
+    for page in graph:
+        ranks[page] = 1.0 / npages
+    
+    for i in range(0, numloops):
+        newranks = {}
+        for page in graph:
+            newrank = (1 - d) / npages
+            
+            for node in graph:              
+                if page in graph[node]:                                         #if page is in that list
+                    newrank = newrank + d * (ranks[node] / len(graph[node]))    #
+            newranks[page] = newrank
+        ranks = newranks
+    return ranks
